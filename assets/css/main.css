@@ -1,0 +1,308 @@
+/*todo Extras  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.container {
+    max-width: 1480px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    margin: 20px 0;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+
+/*todo =======================================  */
+
+/*! Menu  */
+
+header.menu-navbar {
+    background-color: cornflowerblue;
+}
+
+header.menu-navbar nav.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+header.menu-navbar nav.menu ul li a {
+    display: block;
+    padding: 18px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*! =======================================  */
+
+/*! Article  */
+
+section.articles {
+    margin-top: 10px;
+}
+
+/*? Artigo */
+article.article { 
+    display: flex;
+    position: relative;
+    height: 280px;
+    max-width: 1400px;
+    padding-bottom: 40px;
+    margin-top: 70px;
+    border-bottom: 1px solid #CCCCCC45;
+}
+/*? =============== */
+
+/*? Calendario */
+article.article div.day {
+    display: block;
+    margin-right: 20px;
+    white-space: nowrap;
+    text-align: center;
+    height: 95px;
+    border: 1px solid rgba(204, 204, 204, 0.671);
+    box-shadow: 0px 4px 0px 0px rgba(204, 204, 204, 0.712);
+}
+
+article.article div.day h3 {
+    font-size: 13px;
+    background-color: rgb(38, 158, 44);
+    color: #FFF;
+    font-family: 'Open Sans';
+    text-align: center;
+    padding: 5px 10px;
+}
+
+article.article div.day h2 {
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(32, 32, 32);
+    font-family: 'Open Sans';
+    text-align: center;
+    padding: 1px 4px;
+}
+article.article div.day span {
+    font-size: 13px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(38, 158, 44);
+    font-family: 'Open Sans';
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: .1px;
+    padding: 5px 10px;
+}
+/*? =============== */
+
+/*? Descrição */
+div.media-description {
+    margin-left: 40px;
+}
+
+/** Titulo */
+div.media-description header h1 a {
+    font-family: 'Open Sans', sans-serif;
+    color: #575757;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+div.media-description header h1 a:hover {
+    color: #0f0f0f;
+}
+
+/** Dados do Post | Autor | Tags | Comentários */
+div.media-description header div.media-data {
+    margin: 15px 0 30px;
+}
+
+div.media-description header div.media-data a:hover {
+    color: #242424;
+}
+
+div.media-description header div.media-data span {
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    color: #3a3a3a;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+div.media-description header div.media-data span a {
+    text-decoration: none;
+    color: #5d5d5d;
+    border-bottom: 1px solid #00000025;
+}
+
+/** Tags */
+div.media-description header div.media-data span.tags a:not(:last-child) {
+    margin-right: 5px;
+}
+
+/** Ícones dos dados do post */
+div.media-description header div.media-data span::before {
+    color: #424242;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    font-size: 14px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+div.media-description header div.media-data span.tags::before {
+    content: '\f02b';
+}
+
+div.media-description header div.media-data span.comments::before {
+    content: '\f086';
+}
+
+/** Descrição do Post */
+div.media-description p {
+    font-family: 'Open Sans', sans-serif;
+    color: #646464;
+    font-size: 15px;
+}
+/*? =============== */
+
+/*? Leia mais */
+article.article div.read-more {
+    position: absolute;
+    bottom: 57px;
+    left: 505px;
+}
+
+article.article div.read-more a {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #3a3a3a;
+    font-weight: 600;
+    font-style: italic;
+}
+
+article.article div.read-more a:hover {
+    color: #1d1d1d;
+}
+/*? =============== */
+
+/*! =======================================  */
+
+/*! Admin */
+
+/*? Box Form */
+section.admin {
+    position: relative;
+}
+
+/** Logo - Login  */
+div.form div.logo {
+    width: 100px;
+    height: 45px;
+    background-color: #6495ED;
+    position: absolute;
+    top: -20px;
+    border-radius: 2px;
+    border: 1px solid #00000025;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 3px 0px #1661c294;
+}
+
+div.form div.logo h2 {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -.5px;
+}
+
+div.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+/** Formulário */
+div.form form.form {
+    background-color: rgb(250, 252, 255);
+    width: 360px;
+    height: 320px;
+    border: 1px solid #1661c294;
+    border-radius: 2px;
+    padding-top: 50px;
+    box-shadow: 0px 4px 1px 0px #1661c294;
+}
+
+/** Label  */
+div.form form.form label {
+    margin-bottom: 7px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: rgb(75, 75, 75);
+    border-bottom: 1px solid rgba(230, 230, 230, 0.993);
+    font-style: italic;
+    position: relative;
+    width: 100%;
+}
+
+div.form form.form label::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #1661c294;
+}
+
+/** Campo de texto  */
+div.form form.form input[type='text'] {
+    width: 250px;
+    height: 40px;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px 0px #1661c294;
+    border: 1px solid #1661c294;
+    padding-left: 5px;
+    font-size: 17px;
+    color: rgb(98, 98, 98);
+}
+
+/** Botão submit  */
+div.form form.form input[type='submit'] {
+    width: 85px;
+    height: 37px;
+    border-radius: 1px;
+    border: 1px solid #1661c294;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: -.2px;
+    font-family: 'Open Sans';
+    color: rgb(75, 75, 75);
+}
+
+div.form form.form input[type='submit']:hover {
+    background-color: #ccc;
+    color: #FFFFFF;
+    background-color: #6495ED;
+}
+/*? =============== */
+/*! =======================================  */
