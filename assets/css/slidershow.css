@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.caixa-slideshow {
+    top: -67px;
+    min-width: 1000px;
+    position: relative;
+}
+
+.meus-slides {
+    display: none;
+}
+
+.anterior,
+.proximo {
+    cursor: pointer;
+    position: absolute;
+    background-color: rgba(0,0,0,0.3);
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+
+.proximo {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.anterior:hover,
+.proximo:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.numero-imagem {
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+.ponto-indicador-slide {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.ativo,
+.ponto-indicador-slide:hover {
+    background-color: #717171;
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.img {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}

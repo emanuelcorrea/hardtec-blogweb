@@ -22,6 +22,7 @@ date_default_timezone_set('America/Sao_Paulo');
         <meta name="keywords" content="hardtech">
 
         <!-- CSS -->
+        <link rel="stylesheet" href="assets/css/slidershow.css">
         <link rel="stylesheet" href="assets/css/main.css">
 
         <!-- Fonts -->
@@ -77,5 +78,41 @@ date_default_timezone_set('America/Sao_Paulo');
                 <?php endforeach; ?>
             </section>
         </main>
+        <script>
+            window.onscroll = function() {
+                var scroll = window.pageYOffset;
+
+                if (scroll > 250) {
+                    document.querySelector(".logo img").style.width = "70px";
+                    document.querySelector(".logo img").style.top = "0px";
+                    document.querySelector(".container-menu").style.maxWidth = "1080px";
+                }
+
+                if (scroll < 250) {
+                    document.querySelector(".container-menu").style.maxWidth = "1280px";
+                    document.querySelector(".logo img").style.top = "10px";
+                    document.querySelector(".logo img").style.width = "80px";
+                }
+            }
+
+            var indice_slide_auto = 0;
+            trocarSlides();
+            
+            function trocarSlides() {
+                var i_auto;
+                var slides_auto = document.getElementsByClassName("meus-slides-auto");
+                var ponto_indicador_auto = document.getElementsByClassName("ponto-indicador-slide");
+                for (i_auto = 0; i_auto < slides_auto.length; i_auto++) {
+                    slides_auto[i_auto].style.display = "none";  
+                }
+                indice_slide_auto++;
+                if (indice_slide_auto > slides_auto.length) {indice_slide_auto = 1}    
+                for (i_auto = 0; i_auto < ponto_indicador_auto.length; i_auto++) {
+                    ponto_indicador_auto[i_auto].className = ponto_indicador_auto[i_auto].className.replace(" ativo", "");
+                }
+                slides_auto[indice_slide_auto-1].style.display = "block";  
+                setTimeout(trocarSlides, 5000);
+            }
+        </script>
     </body>
 </html>
