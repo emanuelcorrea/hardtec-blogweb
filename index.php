@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require_once('models/Crud.php');
+ini_set("xdebug.overload_var_dump", "off");
 
 $db = new Crud();
 
@@ -31,6 +32,26 @@ date_default_timezone_set('America/Sao_Paulo');
     </head>
     <body>
         <?php require_once('views/header.php')?>
+        <div class="banner">
+            <!-- <ul>
+                <li>
+                    <img src="assets/img/bgedit.jpg" alt="">
+                </li>
+            </!-->
+            <div class="caixa-slideshow">
+                    <div class="meus-slides-auto fade">
+                        <img class="img" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/bgedit.jpg">
+                    </div>
+
+                    <div class="meus-slides-auto fade">
+                        <img class="img" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/bg1.jpeg">
+                    </div>
+
+                    <div class="meus-slides-auto fade">
+                        <img class="img" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/bg2.jpeg">
+                    </div>
+                </div>
+        </div>
         <main class="articles-main">
             <section class="articles container">
                 <?php foreach ($db->selectArticles() as $article): ?>
@@ -44,7 +65,7 @@ date_default_timezone_set('America/Sao_Paulo');
                         </div>
                         <!-- Imagem Destaque -->
                         <header class="article-header">
-                            <a href="<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php echo $article->imagem_destaque; ?>" alt="" width="350" height="220"></a>
+                            <a href="post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php echo $article->imagem_destaque; ?>" alt="" width="350" height="220"></a>
                         </header>
                         <div class="media">
                             <div class="media-description">
