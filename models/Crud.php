@@ -53,7 +53,7 @@ class Crud
     {
         try {
             $this->setQuery(
-                "SELECT * FROM postagem WHERE slug = '$slug'"
+                "SELECT * FROM postagem INNER JOIN usuario ON postagem.id_usuario = usuario.id_usuario WHERE postagem.slug = '$slug' "
             );
 
             $this->stmt = $this->conn->prepare($this->getQuery());
@@ -107,7 +107,6 @@ class Crud
             $this->stmt->execute();
 
             if ($this->stmt->rowCount() > 0) {
-                var_dump($this->stmt->rowCount());
                 return $this->stmt->fetchAll(PDO::FETCH_OBJ);
             } else {
                 return false;

@@ -13,7 +13,8 @@
     width: 100%;
 }
 
-.container-menu  {
+.container-menu,
+.container-article  {
     max-width: 1080px;
     margin: 0 auto;
     width: 100%;
@@ -92,9 +93,6 @@ div.banner {
     background-color: rgba(42, 42, 42, 0.363)
 }
 
-div.banner {
-
-}
 
 div.banner img {
     height: 700px;
@@ -361,4 +359,117 @@ div.form form.form input[type='submit']:hover {
 
 /*! Article */
 
-section.article div.article-header 
+section.article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3.4rem;
+}
+
+section.article div.article-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/** Imagem de destaque */
+section.article div.article-header div.article-image img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0px 0px 1rem 5px rgba(0, 0, 0, .3);
+}
+
+/** Título da postagem  */
+section.article div.article-header div.article-header-info h1 {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    color: #00000090;
+    position: relative;
+    margin: .5rem auto;
+}
+
+section.article div.article-header div.article-header-info h1::after {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 1px;
+    background-color: #00000025;
+    left: 0;
+    top: 15px;
+    margin: 0 auto;
+}
+
+section.article div.article-header div.article-header-info h1::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 1px;
+    background-color: #00000025;
+    right: 0;
+    top: 15px;
+    margin: 0 auto;
+}
+
+/** Informações da postagem */
+section.article div.article-header div.article-post-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.article div.article-header div.article-post-info div {
+    display: flex;
+}
+
+section.article div.article-header div.article-post-info span {
+    margin-top: 1rem;
+    color: #00000096;
+    font-family: 'Open Sans';
+    margin-right: .8rem;
+}
+
+section.article div.article-header div.article-post-info span a {
+    text-decoration: none;
+    color: #00000096;
+    font-family: 'Open Sans';
+    border-bottom: 1px solid #00000025;
+}
+
+/** Conteúdo da postagem */
+
+section.article div.article-content {
+    margin-top: 2.5rem;
+}
+
+/*! Account */
+
+main.account-main {
+    display: flex;
+    justify-content: center;
+}
+
+section.account-content {
+    margin-top: 4.5rem;
+    width: 1280px;
+    box-shadow: 0px 0px 1.5rem #00000015;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 600px;
+}
+
+section.account-content div.login,
+section.account-content div.register {
+    width: 600px;
+}
+
+section.account-content div.login {
+}
+
+section.account-content div.account div.account-header h2 {
+    text-align: center;
+    font-family: 'Roboto';
+    font-weight: normal;
+}
+
