@@ -7,13 +7,29 @@ $db = new Crud();
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
+if (isset($_GET['submit'])) {
+    $slug = str_replace(' ', '-', lcfirst($_GET['title_post']));
+
+    $dados = array(
+        "titulo" => $_GET['title_post'],
+        "categoria" => $_GET['category_post'],
+        "conteudo" => $_GET['content_post'],
+        "slug" => $slug
+    );
+    
+    if ($db->addPost($dados)) {
+        header("Location: http://localhost/hardtec-blogweb/index.php");
+    }
+    
+}
+
 ?>
 <!DOCTYPE html>
 
 <html lang="pt-BR">
     <head>
         <!-- Title -->
-        <title>Entrar - HARDTEC</title>
+        <title>Adicionar Post - HARDTEC</title>
 
         <!-- Meta TAGS -->
         <meta charset="UTF-8">
@@ -32,38 +48,36 @@ date_default_timezone_set('America/Sao_Paulo');
     </head>
     <body>
         <?php require_once('../views/header.php')?>
-        <main class="account-main container">
-            <section class="account-content">
-                <div class="login">
+        <main class="addpost-main container">
+            <section class="addpost-content">
+                <div class="form">
                     <div class="account">
-                        <div class="account-header">
-                            <h2>Login</h2>
-                        </div>
-                        <div class="login-form">
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <label for="user">Usuário</label>
-                                    <input type="text" name="user" id="user">
+                        <h2>Adicionar uma nova postagem</h2>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="title_post">Título</label>
+                                    <input type="text" name="title_post" id="title_post" placeholder="Digite o título da postagem">
                                 </div>
-                                <div class="row">
-                                    <label for="password">Senha</label>
-                                    <input type="password" name="password" id="password">
+                                <div class="col">
+                                    <label for="category_post">Categoria</label>
+                                    <select name="category_post" id="category_post">
+                                    <?php foreach ($db->selectCategorys() as $category): ?>
+                                        <option value="<?php echo $category->id_categoria; ?>"><?php echo $category->nome; ?></option>
+                                    <?php endforeach;?>
+                                    </select>
                                 </div>
-                                <input type="submit" value="Entrar" name="submit">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="register">
-                    <div class="account-content">
-                        <div class="account">
-                            <div class="account-header">
-                                <h2>Cadastrar</h2>
                             </div>
-                            <div class="register-form">
-                                <a href="#">Cadastre-se aqui</a>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="content_post">Conteúdo</label>
+                                    <textarea name="content_post" id="content_post" cols="100" rows="25"></textarea>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <input type="submit" value="Enviar" name="submit">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>

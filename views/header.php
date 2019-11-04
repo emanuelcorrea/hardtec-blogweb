@@ -1,4 +1,4 @@
-<header class="menu-navbar">
+    <header class="menu-navbar">
     <div class="menu-content container-menu">
         <nav class="menu">
             <ul>
@@ -8,7 +8,7 @@
             </ul>
             <div class="logo">
                 <div class="logo-content">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/logoHardTec.jpg" alt="">
+                    <img src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/logohardtec.png" alt="">
                 </div>
             </div>
             <ul>

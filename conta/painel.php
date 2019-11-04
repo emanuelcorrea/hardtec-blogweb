@@ -13,7 +13,7 @@ date_default_timezone_set('America/Sao_Paulo');
 <html lang="pt-BR">
     <head>
         <!-- Title -->
-        <title>Entrar - HARDTEC</title>
+        <title>Listagem de Posts - HARDTEC</title>
 
         <!-- Meta TAGS -->
         <meta charset="UTF-8">
@@ -32,38 +32,35 @@ date_default_timezone_set('America/Sao_Paulo');
     </head>
     <body>
         <?php require_once('../views/header.php')?>
-        <main class="account-main container">
-            <section class="account-content">
-                <div class="login">
+        <main class="addpost-main container">
+            <section class="addpost-content">
+                <div class="form">
                     <div class="account">
-                        <div class="account-header">
-                            <h2>Login</h2>
-                        </div>
-                        <div class="login-form">
-                            <form action="#" method="post">
-                                <div class="row">
-                                    <label for="user">Usuário</label>
-                                    <input type="text" name="user" id="user">
-                                </div>
-                                <div class="row">
-                                    <label for="password">Senha</label>
-                                    <input type="password" name="password" id="password">
-                                </div>
-                                <input type="submit" value="Entrar" name="submit">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="register">
-                    <div class="account-content">
-                        <div class="account">
-                            <div class="account-header">
-                                <h2>Cadastrar</h2>
-                            </div>
-                            <div class="register-form">
-                                <a href="#">Cadastre-se aqui</a>
-                            </div>
-                        </div>
+                        <h2>Listagem</h2>
+                        <table>
+                            <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Categoria</th>
+                                <th>Editar</th>
+                                <th>Remover</th>
+                            </tr>aaaaaaaaaaa
+                            <?php foreach($db->selectArticles() as $postagem): ?>
+                            <tr>
+                                <td class="img-table"><img src="<?php echo $postagem->imagem_destaque; ?>" width="250"></td>
+                                <td><?php echo $postagem->id_postagem; ?></td>
+                                <td><?php echo $postagem->titulo; ?></td>
+                                <td>
+                                    <?php foreach ($db->selectCategory($postagem->id_postagem) as $category): ?>
+                                        <a href="#"><?php echo $category->nomeCategoria; ?></a><br>
+                                    <?php endforeach;?>
+                                </td>
+                                <td><a href="painel/editar?idreceita=<?php echo $postagem->id_postagem; ?>"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="painel/deletar/<?php echo $postagem->id_postagem; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </table>
                     </div>
                 </div>
             </section>

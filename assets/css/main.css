@@ -31,6 +31,25 @@
     margin: 0 auto;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
 /*todo =======================================  */
 
@@ -44,14 +63,15 @@ header.menu-navbar {
     border-bottom: 5px solid #FFF;
 }
 
+header.menu-navbar nav.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
 header.menu-navbar nav.menu ul {
     display: flex;
     list-style: none;
-}
-
-header.menu-navbar nav.menu {
-    display: flex;
-    justify-content: space-around;
+    align-items: center;
 }
 
 header.menu-navbar nav.menu ul li a {
@@ -71,17 +91,27 @@ header.menu-navbar nav.menu div.logo {
 }
 
 header.menu-navbar nav.menu div.logo div.logo-content {
-    position: relative;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    top: 10px;
+    left: -35px;
+    box-shadow: 0px 0px 1.5rem 2px #00000055;
 }
 
 header.menu-navbar nav.menu div.logo div.logo-content img {
+    position: relative;
+    width: 90px;
+    z-index: 5;
+}
+
+header.menu-navbar nav.menu div.logo div.logo-content img::before {
+    content: '';
     position: absolute;
-    left: -45px;
-    top: 10px;
-    width: 80px;
     border-radius: 50%;
-    border: 5px solid #FFF;
-    box-shadow: 0px 0px 1.5rem 2px #00000055;
+    border: 5px solid #000;
 }
 
 /*? Banner */
@@ -462,9 +492,6 @@ section.account-content {
 section.account-content div.login,
 section.account-content div.register {
     width: 600px;
-}
-
-section.account-content div.login {
 }
 
 section.account-content div.account div.account-header h2 {

@@ -33,7 +33,7 @@ class Crud
     {
         try {
             $this->setQuery(
-                "SELECT * FROM postagem"
+                "SELECT * FROM postagem ORDER BY id_postagem DESC"
             );
 
             $this->stmt = $this->conn->prepare($this->getQuery());
@@ -80,6 +80,15 @@ class Crud
         return $this->executeQuery();
     }
 
+    public function selectCategorys()
+    {
+        $this->setQuery(
+            "SELECT * FROM categoria"
+        );
+
+        return $this->executeQuery();
+    }
+
     public function selectObject()
     {
         try {
@@ -115,6 +124,83 @@ class Crud
             echo 'Error: ' . $e->getMessage();
         }
     }
+
+    //? Post
+
+
+    public function addPost($dados)
+    {
+        try {
+            $this->setQuery(
+                "INSERT INTO postagem (id_usuario, titulo, conteudo, slug, `data`) 
+                VALUES (:id_usuario, :titulo, :conteudo, :slug, NOW())"
+            );
+
+            $this->stmt = $this->conn->prepare($this->getQuery());
+            if ($this->stmt->execute(array(
+                ":id_usuario" => 1,
+                ":titulo" => $dados['titulo'],
+                ":conteudo" => $dados['conteudo'],
+                ":slug" => $dados['slug']
+            ))) {
+                $this->addCategory($dados['categoria']);
+            };
+
+            if ($this->stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            exit;
+        }
+    }
+
+    public function addCategory($id_categoria)
+    {
+        try {
+            $id_postagem = $this->lastId()['id_postagem'];
+            
+            $this->setQuery(
+                "INSERT INTO item_categoria (id_categoria, id_postagem) VALUES ($id_categoria, $id_postagem)"
+            );
+
+            $this->stmt = $this->conn->prepare($this->getQuery());
+            $this->stmt->execute();
+
+            if ($this->stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            exit;
+        }
+    }
+
+    public function lastId()
+    {
+        try {
+            $this->setQuery(
+                "SELECT id_postagem FROM postagem ORDER BY id_postagem DESC"
+            );
+
+            $this->stmt = $this->conn->prepare($this->getQuery());
+            $this->stmt->execute();
+
+            if ($this->stmt->rowCount() > 0) {
+                return $this->stmt->fetch(PDO::FETCH_ASSOC);
+            } else {
+                return false;
+            }
+        } catch (\PDOException $e){
+            echo "Error: " . $e->getMessage();
+            exit;
+        }
+    }
+    
 
     //! Getters && Setters 
 

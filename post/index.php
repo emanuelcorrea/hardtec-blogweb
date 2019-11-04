@@ -53,6 +53,7 @@ if (isset($_GET['slug']) && !empty($_GET['slug'])) {
                         <!-- Título da postagem -->
                         <h1><?php echo $article->titulo?></h1>
                     </div>
+                    <!-- Dados do Post | Autor | Tags | Comentários -->
                     <div class="article-post-info">
                         <div>
                             <span class="article-info-author" title="Postado por <?php echo $article->nome; ?>"><i class="fas fa-user-tag"></i> <?php echo $article->nome; ?></span>

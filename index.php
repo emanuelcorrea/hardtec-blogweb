@@ -33,11 +33,6 @@ date_default_timezone_set('America/Sao_Paulo');
     <body>
         <?php require_once('views/header.php')?>
         <div class="banner">
-            <!-- <ul>
-                <li>
-                    <img src="assets/img/bgedit.jpg" alt="">
-                </li>
-            </!-->
             <div class="caixa-slideshow">
                     <div class="meus-slides-auto fade">
                         <img class="img" src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/bgedit.jpg">
@@ -104,15 +99,15 @@ date_default_timezone_set('America/Sao_Paulo');
                 var scroll = window.pageYOffset;
 
                 if (scroll > 250) {
-                    document.querySelector(".logo img").style.width = "70px";
-                    document.querySelector(".logo img").style.top = "0px";
-                    document.querySelector(".container-menu").style.maxWidth = "1080px";
+                    document.querySelector(".logo-content img").style.width = "80px";
+                    document.querySelector(".logo-content").style.top = "0px";
+                    document.querySelector(".container-menu").style.maxWidth = "920px";
                 }
 
                 if (scroll < 250) {
                     document.querySelector(".container-menu").style.maxWidth = "1280px";
-                    document.querySelector(".logo img").style.top = "10px";
-                    document.querySelector(".logo img").style.width = "80px";
+                    document.querySelector(".logo-content").style.top = "10px";
+                    document.querySelector(".logo-content img").style.width = "90px";
                 }
             }
 
