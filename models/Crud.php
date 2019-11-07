@@ -5,7 +5,7 @@ class Crud
 
     public function __construct()
     {
-        $this->conn = new PDO('mysql:host=localhost;dbname=db_blog;charset=utf8', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        $this->conn = new PDO('mysql:host=profthiago.com;dbname=proft578_hardtec;charset=utf8', 'proft578_hardtec', 'soufeliz123', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
@@ -109,6 +109,49 @@ class Crud
         }
     }
 
+    public function deleteArticle($id_postagem)
+    {
+        try {
+            $this->setQuery(
+                "DELETE FROM postagem WHERE id_postagem = $id_postagem"
+            );
+
+            $this->stmt = $this->conn->prepare($this->getQuery());
+            $this->stmt->execute();
+
+            if ($this->stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function updateArticle($dados)
+    {
+        try {
+            $this->setQuery(
+                "UPDATE postagem SET titulo = :titulo, conteudo = :conteudo WHERE id_postagem = :id_postagem"
+            );
+
+            $this->stmt = $this->conn->prepare($this->getQuery());
+            $this->stmt->execute(array(
+                ":titulo" => $dados['titulo'],
+                ":conteudo" => $dados['conteudo']
+            ));
+
+            if ($this->stmt->rowCount() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
     public function executeQuery()
     {
         try {
@@ -126,8 +169,6 @@ class Crud
     }
 
     //? Post
-
-
     public function addPost($dados)
     {
         try {

@@ -36,7 +36,9 @@ date_default_timezone_set('America/Sao_Paulo');
             <section class="addpost-content">
                 <div class="form">
                     <div class="account">
-                        <h2>Listagem</h2>
+                        <div class="title">
+                            <h2>Listagem</h2>
+                        </div>
                         <table>
                             <tr>
                                 <th></th>
@@ -45,8 +47,8 @@ date_default_timezone_set('America/Sao_Paulo');
                                 <th>Categoria</th>
                                 <th>Editar</th>
                                 <th>Remover</th>
-                            </tr>aaaaaaaaaaa
-                            <?php foreach($db->selectArticles() as $postagem): ?>
+                            </tr>
+                                <?php foreach($db->selectArticles() as $postagem): ?>
                             <tr>
                                 <td class="img-table"><img src="<?php echo $postagem->imagem_destaque; ?>" width="250"></td>
                                 <td><?php echo $postagem->id_postagem; ?></td>
@@ -56,8 +58,8 @@ date_default_timezone_set('America/Sao_Paulo');
                                         <a href="#"><?php echo $category->nomeCategoria; ?></a><br>
                                     <?php endforeach;?>
                                 </td>
-                                <td><a href="painel/editar?idreceita=<?php echo $postagem->id_postagem; ?>"><i class="fas fa-edit"></i></a></td>
-                                <td><a href="painel/deletar/<?php echo $postagem->id_postagem; ?>"><i class="fas fa-trash-alt"></i></a></td>
+                                <td><a href="<?php echo LOCALHOST;?>conta/edit.php?slug=<?php echo $postagem->slug; ?>"><i class="fas fa-edit"></i></a></td>
+                                <td><a href="<?php echo LOCALHOST;?>conta/delete.php?id_postagem=<?php echo $postagem->id_postagem; ?>"><i class="fas fa-trash-alt"></i></a></td>
                             </tr>
                             <?php endforeach; ?>
                         </table>
@@ -65,22 +67,4 @@ date_default_timezone_set('America/Sao_Paulo');
                 </div>
             </section>
         </main>
-        <script>
-            window.onscroll = function() {
-                var scroll = window.pageYOffset;
-
-                if (scroll > 250) {
-                    document.querySelector(".logo img").style.width = "70px";
-                    document.querySelector(".logo img").style.top = "0px";
-                    document.querySelector(".container-menu").style.maxWidth = "1080px";
-                }
-
-                if (scroll < 250) {
-                    document.querySelector(".container-menu").style.maxWidth = "1280px";
-                    document.querySelector(".logo img").style.top = "10px";
-                    document.querySelector(".logo img").style.width = "80px";
-                }
-            }
-        </script>
-    </body>
-</html>
+    <?php require_once('../views/footer.php'); ?>

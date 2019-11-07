@@ -28,7 +28,27 @@
 .col {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 0 auto;
+}
+
+.title h2 {
+    font-family: 'Open Sans';
+    font-weight: normal;
+    color: #545454;
+    text-align: center;
+    margin: 0 auto 50px;
+    position: relative;
+}
+
+.title h2::after {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 30%;
+    margin: 5px auto;
+    background-color: #6495ED;
+    border-radius: 5px;
 }
 
 form {
@@ -61,6 +81,7 @@ header.menu-navbar {
     position: sticky;
     top: 0;
     border-bottom: 5px solid #FFF;
+    box-shadow: 0px 0px 1.5rem 1rem #00000010;
 }
 
 header.menu-navbar nav.menu {
@@ -281,56 +302,24 @@ article.article div.read-more a:hover {
 
 /*! =======================================  */
 
-/*! Admin */
-
-/*? Box Form */
-section.admin {
-    position: relative;
-}
-
-/** Logo - Login  */
-div.form div.logo {
-    width: 100px;
-    height: 45px;
-    background-color: #6495ED;
-    position: absolute;
-    top: -20px;
-    border-radius: 2px;
-    border: 1px solid #00000025;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 1px 3px 0px #1661c294;
-}
-
-div.form div.logo h2 {
-    font-family: 'Open Sans', sans-serif;
-    color: #FFFFFF;
-    letter-spacing: -.5px;
+/*! Addpost */
+.addpost {
+    width: 1000px;
 }
 
 div.form {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
-/** Formulário */
-div.form form.form {
-    background-color: rgb(250, 252, 255);
-    width: 360px;
-    height: 320px;
-    border: 1px solid #1661c294;
-    border-radius: 2px;
-    padding-top: 50px;
-    box-shadow: 0px 4px 1px 0px #1661c294;
+.tox {
+    width: 1000px;
+    height: 800px !important;
 }
 
-/** Label  */
+/** Label */
 div.form form.form label {
     margin-bottom: 7px;
     font-family: 'Open Sans', sans-serif;
@@ -352,8 +341,8 @@ div.form form.form label::after {
     background-color: #1661c294;
 }
 
-/** Campo de texto  */
-div.form form.form input[type='text'] {
+/** Campo de texto */
+div.form form input[type='text'] {
     width: 250px;
     height: 40px;
     border-radius: 2px;
@@ -362,10 +351,12 @@ div.form form.form input[type='text'] {
     padding-left: 5px;
     font-size: 17px;
     color: rgb(98, 98, 98);
+    margin-right: 155px;
 }
 
-/** Botão submit  */
-div.form form.form input[type='submit'] {
+/** Botão submit */
+div.form form input[type='submit'] {
+    margin: 0 auto;
     width: 85px;
     height: 37px;
     border-radius: 1px;
@@ -379,7 +370,7 @@ div.form form.form input[type='submit'] {
     color: rgb(75, 75, 75);
 }
 
-div.form form.form input[type='submit']:hover {
+div.form form input[type='submit']:hover {
     background-color: #ccc;
     color: #FFFFFF;
     background-color: #6495ED;

@@ -7,6 +7,16 @@ $db = new Crud();
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
+if (isset($_GET['slug']) && !empty($_GET['slug'])) {
+    if ($db->selectArticle($_GET['slug'])) {
+        $article = $db->selectArticle($_GET['slug']);
+    } else {
+        header("Location: http://localhost/hardtec-blogweb");
+    }
+} else {
+    header("Location: http://localhost/hardtec-blogweb");
+}
+
 if (isset($_GET['submit'])) {
     $slug = str_replace(' ', '-', lcfirst($_GET['titulo']));
 
@@ -17,7 +27,7 @@ if (isset($_GET['submit'])) {
         "slug" => $slug
     );
     
-    if ($db->addPost($dados)) {
+    if ($db->editArticle($dados)) {
         header("Location: http://localhost/hardtec-blogweb/index.php");
     }
 }
@@ -55,13 +65,13 @@ if (isset($_GET['submit'])) {
                 <div class="form">
                     <div class="addpost">
                         <div class="title">
-                            <h2>Adicionar uma nova postagem</h2>
+                            <h2>Editar postagem</h2>
                         </div>
                         <form action="#">
                             <div class="row">
                                 <div class="col">
                                     <label for="titulo">Título</label>
-                                    <input type="text" name="titulo" id="titulo" placeholder="Digite o título da postagem">
+                                    <input type="text" name="titulo" id="titulo" placeholder="Digite o título da postagem" value="<?php echo $article->titulo; ?>">
                                 </div>
                                 <div class="col">
                                     <label for="categoria">Categoria</label>
@@ -75,7 +85,7 @@ if (isset($_GET['submit'])) {
                             <div class="row">
                                 <div class="col">
                                     <label for="conteudo">Conteúdo</label>
-                                    <textarea name="conteudo" id="conteudo" cols="200" rows="25"></textarea>
+                                    <textarea name="conteudo" id="conteudo" cols="200" rows="25"><?php echo $article->conteudo; ?></textarea>
                                 </div>
                             </div>
                             <div class="row">

@@ -73,22 +73,4 @@ if (isset($_GET['slug']) && !empty($_GET['slug'])) {
                 </div>
             </section>
         </main>
-        <script>
-            window.onscroll = function() {
-                var scroll = window.pageYOffset;
-
-                if (scroll > 250) {
-                    document.querySelector(".logo img").style.width = "70px";
-                    document.querySelector(".logo img").style.top = "0px";
-                    document.querySelector(".container-menu").style.maxWidth = "1080px";
-                }
-
-                if (scroll < 250) {
-                    document.querySelector(".container-menu").style.maxWidth = "1280px";
-                    document.querySelector(".logo img").style.top = "10px";
-                    document.querySelector(".logo img").style.width = "80px";
-                }
-            }
-        </script>
-    </body>
-</html>
+        <?php require_once('../views/footer.php'); ?>
