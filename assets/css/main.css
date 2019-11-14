@@ -13,9 +13,14 @@
     width: 100%;
 }
 
-.container-menu,
-.container-article  {
-    max-width: 1080px;
+.container-menu {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container-article {
+    max-width: 1120px;
     margin: 0 auto;
     width: 100%;
 }
@@ -23,13 +28,13 @@
 .row {
     display: flex;
     margin: 20px 0;
+    justify-content: space-between;
 }
 
 .col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
 }
 
 .title h2 {
@@ -69,6 +74,38 @@ th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+span.select2 {
+    width: 450px !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px 0px #1661c294 !important;
+    border: 1px solid #1661c294 !important;
+}
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #ddd !important;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    height: 30px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top: 5px !important;
+    background-color: #1661c294 !important;
+    border: 1px solid #1661c294 !important;
+    color: #FFF;
+    padding: 5px !important;
+    border-radius: 1px !important;
+    font-family: 'Open Sans' !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice span {
+    color: #FFF;
 }
 
 /*todo =======================================  */
@@ -320,10 +357,10 @@ div.form {
 }
 
 /** Label */
-div.form form.form label {
-    margin-bottom: 7px;
+div.form form div.col label {
+    margin-bottom: 7px !important;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: rgb(75, 75, 75);
     border-bottom: 1px solid rgba(230, 230, 230, 0.993);
     font-style: italic;
@@ -351,7 +388,7 @@ div.form form input[type='text'] {
     padding-left: 5px;
     font-size: 17px;
     color: rgb(98, 98, 98);
-    margin-right: 155px;
+    margin-top: 5px;
 }
 
 /** Botão submit */

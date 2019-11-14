@@ -47,7 +47,7 @@ if (isset($_GET['slug']) && !empty($_GET['slug'])) {
                 <div class="article-header">
                     <div class="article-image">
                         <!-- Imagem de destaque da postagem -->
-                        <img src="<?php echo $article->imagem_destaque; ?>" alt="" style="height: 629px">
+                        <img src="<?php if (isset($article->imagem_destaque)) {echo $article->imagem_destaque;} else {echo "../assets/img/logoHardTec.jpg";} ?>" alt="" style="height: 629px">
                     </div>
                     <div class="article-header-info">
                         <!-- Título da postagem -->

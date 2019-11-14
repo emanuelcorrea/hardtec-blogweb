@@ -5,7 +5,8 @@ class Crud
 
     public function __construct()
     {
-        $this->conn = new PDO('mysql:host=profthiago.com;dbname=proft578_hardtec;charset=utf8', 'proft578_hardtec', 'soufeliz123', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        // $this->conn = new PDO('mysql:host=profthiago.com;dbname=proft578_hardtec;charset=utf8', 'proft578_hardtec', 'soufeliz123', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        $this->conn = new PDO('mysql:host=localhost;dbname=db_blog;charset=utf8', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
@@ -198,13 +199,19 @@ class Crud
         }
     }
 
-    public function addCategory($id_categoria)
+    public function addCategory($categorias)
     {
         try {
             $id_postagem = $this->lastId()['id_postagem'];
+
+            $sql = "INSERT INTO item_categoria (id_categoria, id_postagem) VALUES ";
+    
+            foreach($categorias as $key => $value) {
+                $sql .= "($value, $id_postagem), ";
+            }
             
             $this->setQuery(
-                "INSERT INTO item_categoria (id_categoria, id_postagem) VALUES ($id_categoria, $id_postagem)"
+                substr_replace($sql, '', -2)
             );
 
             $this->stmt = $this->conn->prepare($this->getQuery());

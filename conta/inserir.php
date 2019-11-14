@@ -9,6 +9,11 @@ date_default_timezone_set('America/Sao_Paulo');
 
 if (isset($_GET['submit'])) {
     $slug = str_replace(' ', '-', lcfirst($_GET['titulo']));
+    $todas = "";
+
+    echo "<pre>";
+    print_r($_GET['categoria']);
+    echo "</pre>";
 
     $dados = array(
         "titulo" => $_GET['titulo'],
@@ -41,6 +46,7 @@ if (isset($_GET['submit'])) {
         <link rel="stylesheet" href="../assets/css/slidershow.css">
         <link rel="stylesheet" href="../assets/css/main.css">
         <link href='https://cdn.jsdelivr.net/npm/froala-editor@3.0.6/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -64,12 +70,17 @@ if (isset($_GET['submit'])) {
                                     <input type="text" name="titulo" id="titulo" placeholder="Digite o título da postagem">
                                 </div>
                                 <div class="col">
-                                    <label for="categoria">Categoria</label>
-                                    <select name="categoria" id="categoria">
+                                    <label for="categoria">Categorias</label>
+                                    <select class="js-example-basic-multiple" name="categoria[]" multiple="multiple" name="categoria" id="categoria">
+                                        <?php foreach ($db->selectCategorys() as $category): ?>
+                                            <option value="<?php echo $category->id_categoria; ?>"><?php echo $category->nome; ?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                    <!-- <select name="categoria" id="categoria">
                                     <?php foreach ($db->selectCategorys() as $category): ?>
                                         <option value="<?php echo $category->id_categoria; ?>"><?php echo $category->nome; ?></option>
                                     <?php endforeach;?>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                             <div class="row">

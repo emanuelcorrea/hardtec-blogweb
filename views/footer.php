@@ -1,4 +1,6 @@
-<script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+        <script>
             window.onscroll = function() {
                 var scroll = window.pageYOffset;
 
@@ -17,7 +19,7 @@
 
             var indice_slide_auto = 0;
             trocarSlides();
-            
+                
             function trocarSlides() {
                 var i_auto;
                 var slides_auto = document.getElementsByClassName("meus-slides-auto");
@@ -33,6 +35,11 @@
                 slides_auto[indice_slide_auto-1].style.display = "block";  
                 setTimeout(trocarSlides, 5000);
             }
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('.js-example-basic-multiple').select2({});
+            });
         </script>
     </body>
 </html>

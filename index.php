@@ -29,6 +29,8 @@ date_default_timezone_set('America/Sao_Paulo');
         <!-- Fonts -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Roboto:400,700|Source+Sans+Pro:400,400i,600i&display=swap" rel="stylesheet">
+
+        
     </head>
     <body>
         <?php require_once('views/header.php')?>
@@ -60,7 +62,7 @@ date_default_timezone_set('America/Sao_Paulo');
                         </div>
                         <!-- Imagem Destaque -->
                         <header class="article-header">
-                            <a href="post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php echo $article->imagem_destaque; ?>" alt="" width="350" height="220"></a>
+                            <a href="post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if (isset($article->imagem_destaque)) {echo $article->imagem_destaque;} else {echo "assets/img/logoHardTec.jpg";} ?>" alt="" width="350" height="220"></a>
                         </header>
                         <div class="media">
                             <div class="media-description">
