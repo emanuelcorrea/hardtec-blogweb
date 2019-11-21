@@ -34,7 +34,7 @@ class Crud
     {
         try {
             $this->setQuery(
-                "SELECT * FROM postagem ORDER BY id_postagem DESC"
+                "SELECT * FROM postagem INNER JOIN usuario ON postagem.id_usuario = usuario.id_usuario ORDER BY id_postagem DESC"
             );
 
             $this->stmt = $this->conn->prepare($this->getQuery());
@@ -172,10 +172,14 @@ class Crud
     //? Post
     public function addPost($dados)
     {
+        $imgname = $dados['imgname'];
+        $imgtype = $dados['imgtype'];
+        $imgtemp = $dados['imgtemp'];
+        
         try {
             $this->setQuery(
-                "INSERT INTO postagem (id_usuario, titulo, conteudo, slug, `data`) 
-                VALUES (:id_usuario, :titulo, :conteudo, :slug, NOW())"
+                "INSERT INTO postagem (id_usuario, titulo, conteudo, slug, `data`, imgname, imgtype) 
+                VALUES (:id_usuario, :titulo, :conteudo, :slug, NOW(), :imgname, :imgtype)"
             );
 
             $this->stmt = $this->conn->prepare($this->getQuery());
@@ -183,8 +187,20 @@ class Crud
                 ":id_usuario" => 1,
                 ":titulo" => $dados['titulo'],
                 ":conteudo" => $dados['conteudo'],
-                ":slug" => $dados['slug']
+                ":slug" => $dados['slug'],
+                "imgname" => $imgname,
+                "imgtype" => $imgtype
             ))) {
+                $ultimoid = $this->lastId()['id_postagem'];
+
+                $diretorio = '../assets/img/post/'.$ultimoid.'/';
+
+                mkdir($diretorio, 0755);
+
+                $nomedoarquivo = $ultimoid.$imgtype;
+
+                move_uploaded_file($imgtemp, $diretorio.$nomedoarquivo);
+                
                 $this->addCategory($dados['categoria']);
             };
 

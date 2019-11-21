@@ -37,7 +37,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 <div class="form">
                     <div class="account">
                         <div class="title">
-                            <h2>Listagem</h2>
+                            <h2>Listagem <a href="<?php echo LOCALHOST; ?>conta/inserir.php" style="color: #6495ED"> <i class="fas fa-plus-circle"></i></a></h2>
                         </div>
                         <table>
                             <tr>

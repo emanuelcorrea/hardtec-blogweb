@@ -41,5 +41,8 @@
                 $('.js-example-basic-multiple').select2({});
             });
         </script>
+        <footer>
+            <h3>Hardtec, 2019 - Todos os direitos reservados</h3>
+        </footer>
     </body>
 </html>

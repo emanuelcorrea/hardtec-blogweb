@@ -15,11 +15,24 @@ if (isset($_POST['submit'])) {
     print_r($_POST['categoria']);
     echo "</pre>";
 
+    $imgname = $_FILES['img']['name'];
+    $imgtype = $_FILES['img']['type'];
+    $imgtemp = $_FILES['img']['tmp_name'];
+
+    if (substr($imgname, -4) == 'jpeg') {
+        $type = substr($imgname, -5);
+    } else {
+        $type = substr($imgname, -4);
+    }
+
     $dados = array(
         "titulo" => $_POST['titulo'],
         "categoria" => $_POST['categoria'],
         "conteudo" => $_POST['conteudo'],
-        "slug" => $slug
+        "slug" => $slug,
+        "imgname" => $imgname,
+        "imgtype" => $type,
+        "imgtemp" => $imgtemp
     );
     
     if ($db->addPost($dados)) {
@@ -64,7 +77,7 @@ if (isset($_POST['submit'])) {
                         <div class="title">
                             <h2>Adicionar uma nova postagem</h2>
                         </div>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" autocomplete="off" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
                                     <label for="titulo">Título</label>
@@ -77,11 +90,6 @@ if (isset($_POST['submit'])) {
                                             <option value="<?php echo $category->id_categoria; ?>"><?php echo $category->nome; ?></option>
                                         <?php endforeach;?>
                                     </select>
-                                    <!-- <select name="categoria" id="categoria">
-                                    <?php foreach ($db->selectCategorys() as $category): ?>
-                                        <option value="<?php echo $category->id_categoria; ?>"><?php echo $category->nome; ?></option>
-                                    <?php endforeach;?>
-                                    </select> -->
                                 </div>
                             </div>
                             <div class="row">
@@ -92,6 +100,12 @@ if (isset($_POST['submit'])) {
                                         CKEDITOR.replace( 'conteudo' );
                                     </script>
                                 </div>
+                            </div>
+                            <div class="row">
+                            <label for="img" class="img">
+                                Escolha uma imagem
+                            </label>
+                            <input type="file" name="img" id="img">
                             </div>
                             <div class="row">
                                 <input type="submit" value="Enviar" name="submit">

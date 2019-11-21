@@ -62,7 +62,7 @@ date_default_timezone_set('America/Sao_Paulo');
                         </div>
                         <!-- Imagem Destaque -->
                         <header class="article-header">
-                            <a href="post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if (isset($article->imagem_destaque)) {echo $article->imagem_destaque;} else {echo "assets/img/logoHardTec.jpg";} ?>" alt="" width="350" height="220"></a>
+                            <a href="post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if ($article->imgname != "") {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/logoHardTec.jpg";} ?>" width="350" height="220"></a>
                         </header>
                         <div class="media">
                             <div class="media-description">
@@ -72,7 +72,7 @@ date_default_timezone_set('America/Sao_Paulo');
                                     <!-- Dados do Post | Autor | Tags | Comentários -->
                                     <div class="media-data">
                                         <span class="author">
-                                            <a href="#">Por linkoficial</a>
+                                            Por <a href="#"><?php echo $article->nome; ?></a>
                                         </span>
                                         <span class="tags">
                                             <?php foreach ($db->selectCategory($article->id_postagem) as $category): ?>

@@ -12,6 +12,8 @@
     text-align: justify;
     font-weight: normal;
     font-size: 14px;
+    line-height: 2;
+    margin-bottom: 15px;
 }
 
 .article-content h1 {
@@ -19,6 +21,27 @@
     text-align: justify;
     font-weight: normal;
     font-size: 20px;
+}
+
+label.img {
+    background-color: #3498db;
+    color: #FFF;
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px 20px;
+    border: 1px solid #CCC;
+    box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.445);
+    outline: 0;
+    font-family: 'Open Sans';
+    width: 240px;
+    text-align: center;
+    margin: 0 auto;
+    height: 45px;
+    line-height: 30px;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 .container {
@@ -469,7 +492,7 @@ section.article div.article-header div.article-header-info h1::after {
     height: 1px;
     background-color: #00000025;
     left: 0;
-    top: 15px;
+    top: 45px;
     margin: 0 auto;
 }
 
@@ -480,7 +503,7 @@ section.article div.article-header div.article-header-info h1::before {
     height: 1px;
     background-color: #00000025;
     right: 0;
-    top: 15px;
+    top: 45px;
     margin: 0 auto;
 }
 
@@ -542,3 +565,20 @@ section.account-content div.account div.account-header h2 {
     font-weight: normal;
 }
 
+/*! Footer */
+
+footer {
+    height: 60px;
+    background-color: #6495ED;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+footer h3 {
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: normal;
+    color: #FFF;
+}
