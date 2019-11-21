@@ -7,18 +7,18 @@ $db = new Crud();
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
-if (isset($_GET['submit'])) {
-    $slug = str_replace(' ', '-', lcfirst($_GET['titulo']));
+if (isset($_POST['submit'])) {
+    $slug = str_replace(' ', '-', lcfirst($_POST['titulo']));
     $todas = "";
 
     echo "<pre>";
-    print_r($_GET['categoria']);
+    print_r($_POST['categoria']);
     echo "</pre>";
 
     $dados = array(
-        "titulo" => $_GET['titulo'],
-        "categoria" => $_GET['categoria'],
-        "conteudo" => $_GET['conteudo'],
+        "titulo" => $_POST['titulo'],
+        "categoria" => $_POST['categoria'],
+        "conteudo" => $_POST['conteudo'],
         "slug" => $slug
     );
     
@@ -54,8 +54,9 @@ if (isset($_GET['submit'])) {
     </head>
     <body>
         <?php require_once('../views/header.php')?>
-        <script src="../assets/js/salve.js"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>
+        <!-- <script src="../assets/js/salve.js"></script> -->
+        <script src="../ckeditor/ckeditor.js"></script>
+        <!-- <script>tinymce.init({ selector:'textarea' });</script> -->
         <main class="addpost-main container">
             <section class="addpost-content">
                 <div class="form">
@@ -63,7 +64,7 @@ if (isset($_GET['submit'])) {
                         <div class="title">
                             <h2>Adicionar uma nova postagem</h2>
                         </div>
-                        <form action="#">
+                        <form action="#" method="POST">
                             <div class="row">
                                 <div class="col">
                                     <label for="titulo">Título</label>
@@ -86,7 +87,10 @@ if (isset($_GET['submit'])) {
                             <div class="row">
                                 <div class="col">
                                     <label for="conteudo">Conteúdo</label>
-                                    <textarea name="conteudo" id="conteudo" cols="200" rows="25"></textarea>
+                                    <textarea name="conteudo" id="conteudo" cols="300" rows="45"></textarea>
+                                    <script>
+                                        CKEDITOR.replace( 'conteudo' );
+                                    </script>
                                 </div>
                             </div>
                             <div class="row">

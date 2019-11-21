@@ -85,7 +85,7 @@ date_default_timezone_set('America/Sao_Paulo');
                                     </div>
                                 </header>
                                 <!-- Descrição do Post -->
-                                <p><?php echo mb_strimwidth($article->conteudo, 0, 250) ?>...</p>
+                                <p><?php echo strip_tags(mb_strimwidth($article->conteudo, 0, 250)); ?>...</p>
                             </div>
                         </div>
                         <!-- Botão Leia mais -->

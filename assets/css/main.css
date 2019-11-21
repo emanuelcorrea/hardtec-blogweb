@@ -7,6 +7,20 @@
     transition: 0.2s ease;
 }
 
+.article-content p {
+    font-family: 'Open Sans';
+    text-align: justify;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.article-content h1 {
+    font-family: 'Open Sans';
+    text-align: justify;
+    font-weight: normal;
+    font-size: 20px;
+}
+
 .container {
     max-width: 1480px;
     margin: 0 auto;
