@@ -29,6 +29,7 @@ date_default_timezone_set('America/Sao_Paulo');
         <!-- Fonts -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Roboto:400,700|Source+Sans+Pro:400,400i,600i&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php require_once('../views/header.php')?>
@@ -37,19 +38,25 @@ date_default_timezone_set('America/Sao_Paulo');
                 <div class="login">
                     <div class="account">
                         <div class="account-header">
-                            <h2>Login</h2>
+                            <h2>Entrar</h2>
                         </div>
                         <div class="login-form">
                             <form action="#" method="post">
                                 <div class="row">
-                                    <label for="user">Usuário</label>
-                                    <input type="text" name="user" id="user">
+                                    <div class="col">
+                                        <label for="user">Usuário</label>
+                                        <input type="text" name="user" id="user">
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <label for="password">Senha</label>
-                                    <input type="password" name="password" id="password">
+                                    <div class="col">
+                                        <label for="password">Senha</label>
+                                        <input type="password" name="password" id="password">
+                                    </div>
                                 </div>
-                                <input type="submit" value="Entrar" name="submit">
+                                <div class="row">
+                                    <input type="submit" value="Entrar" name="submit">
+                                </div>
                             </form>
                         </div>
                     </div>

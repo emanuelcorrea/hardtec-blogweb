@@ -117,6 +117,8 @@ span.select2 {
     width: 450px !important;
 }
 
+/**  */
+
 .select2-container--default .select2-selection--multiple {
     border-radius: 2px;
     box-shadow: 0px 1px 3px 0px #1661c294 !important;
@@ -174,9 +176,8 @@ header.menu-navbar nav.menu ul li a {
     padding: 18px;
     text-decoration: none;
     color: #FFFFFF;
-    font-family: Tahoma;
-    font-weight: bold;
-    font-size: 18px;
+    font-family: 'Play', sans-serif;
+    font-size: 17px;
 }
 
 /** Logo */
@@ -546,7 +547,7 @@ main.account-main {
 
 section.account-content {
     margin-top: 4.5rem;
-    width: 1280px;
+    width: 1200px;
     box-shadow: 0px 0px 1.5rem #00000015;
     border-radius: 1rem;
     display: flex;
@@ -559,11 +560,41 @@ section.account-content div.register {
     width: 600px;
 }
 
+section.account-content div.account form div.col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+section.account-content div.account label {
+    font-family: 'Open Sans';
+}
+
+/** Titulo - Entrar - Cadastrar*/
 section.account-content div.account div.account-header h2 {
     text-align: center;
     font-family: 'Roboto';
     font-weight: normal;
+    margin-top: 20px;
 }
+
+section.account-content div.account input[type="text"],
+section.account-content div.account input[type="password"] {
+    height: 35px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+/** Botão entrar */
+section.account-content div.account input[type="submit"] {
+    width: 100px;
+    margin: 0 auto;
+}
+
+/** Botão submit */
+
 
 /*! Footer */
 

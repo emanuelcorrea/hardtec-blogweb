@@ -8,9 +8,9 @@
     <div class="menu-content container-menu">
         <nav class="menu">
             <ul>
-                <li><a href="<?php echo LOCALHOST; ?>">Home</a></li>
-                <li><a href="<?php echo LOCALHOST; ?>conta/painel.php">Painel</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li style="width: 80px"><a href="#"></a></li>
+                <li style="width: 80px"><a href="admin"></a></li>
+                <li style="width: 80px"><a href="#"></a></li>
             </ul>
             <div class="logo">
                 <div class="logo-content">
@@ -18,9 +18,10 @@
                 </div>
             </div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="admin">Login</a></li>
+                <li><a href="<?php echo LOCALHOST; ?>">Home</a></li>
                 <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <!-- <li><a href="<?php echo LOCALHOST; ?>conta/painel.php">Painel</a></li> -->
             </ul>
         </nav>
     </div>
