@@ -45,7 +45,7 @@ require_once('config/config.php');
                 <ul>
                     <li><a href="<?php echo DIRPAGE; ?>">Home</a></li>
                     <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="<?php echo DIRPAGE;?>conta/inserir.php">Inserir</a></li>
                     <!-- <li><a href="<?php echo DIRPAGE;?>conta/painel.php">Painel</a></li> -->
                 </ul>
             </nav>

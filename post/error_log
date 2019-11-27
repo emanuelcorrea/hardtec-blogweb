@@ -1,0 +1,12 @@
+[27-Nov-2019 11:41:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function selectCategory() on null in /home3/proft578/public_html/hardtec.ga/post/index.php:38
+Stack trace:
+#0 {main}
+  thrown in /home3/proft578/public_html/hardtec.ga/post/index.php on line 38
+[27-Nov-2019 11:41:49 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function selectCategory() on null in /home3/proft578/public_html/hardtec.ga/post/index.php:38
+Stack trace:
+#0 {main}
+  thrown in /home3/proft578/public_html/hardtec.ga/post/index.php on line 38
+[27-Nov-2019 11:45:34 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to a member function selectCategory() on null in /home3/proft578/public_html/hardtec.ga/post/index.php:38
+Stack trace:
+#0 {main}
+  thrown in /home3/proft578/public_html/hardtec.ga/post/index.php on line 38

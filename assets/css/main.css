@@ -867,3 +867,45 @@ main.painel-main section.painel-content div.titulo h2 {
 main.painel-main section.painel-content div.titulo h2 span {
     color: rgb(61, 61, 61);
 }
+
+/** Boxes */
+
+div.boxes div.box-title {
+    font-family: 'Open Sans';
+    display: flex;
+    border-bottom: 1px solid #00000015;
+    align-items: center;
+    margin: 100px 0 60px;
+    font-style: italic;
+    color: #00000099;
+    font-size: 23px;
+}
+
+div.boxes div.box-content {
+    height: 150px;
+    width: 200px;
+    background-color: #00000010;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: .5s ease;
+}
+
+div.boxes div.box-content:hover {
+    box-shadow: 0px 0px 1rem #00000025;
+}
+
+div.boxes div.box-img i {
+    font-size: 37px;
+}
+
+div.boxes div.box-img-title h4 {
+    margin-top: 10px;
+    font-family: 'Roboto';
+    font-weight: normal;
+    color: #000;
+}

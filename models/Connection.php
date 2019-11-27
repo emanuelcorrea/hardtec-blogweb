@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/hardtec-blogweb/config/config.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
 
 abstract class Connection
 {

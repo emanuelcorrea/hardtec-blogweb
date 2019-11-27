@@ -3,7 +3,7 @@ require_once('../header.php');
 require_once('../models/Post.php');
 
 if (!isset($_SESSION['logado'])) {
-    header("Location: " . DIRPAGE . "painel");
+    header("Location: index.php");
 }
 
 $post = new Post();
