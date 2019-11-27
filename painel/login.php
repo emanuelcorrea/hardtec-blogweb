@@ -18,7 +18,12 @@ if (isset($_POST['submit'])) {
         $_SESSION['conta'] = $user->login($data)[0];
         $_SESSION['logado'] = true;
 
-        header("Location: " . DIRPAGE . "painel/");
+        $msg = "Logado com sucesso!";
+
+        
+        // header("Location: sucess.php");
+    } else {
+        $msg = "Usuário e/ou senha inválidos!";
     }
 }
 ?>
@@ -54,6 +59,30 @@ if (isset($_POST['submit'])) {
                                 <span></span>
                             </span>
                         </div>
+                    </div>
+                    <div class="msg-error">
+                        <?php if (isset($msg)) { echo "<p>" . $msg . "</p>";} ?></p>
+                        <script>
+                            var p = document.querySelector(".msg-error p");
+                            var msg = document.querySelector(".msg-error p");
+
+                            if (p.value = 'Usuário e/ou senha inválidos!') {
+                                p.classList.add('error');
+
+                                var icon = document.createElement('i');
+                                icon.className = "fa fa-spinner fa-pulse fa-3x fa-fw";
+                                msg.appendChild(icon);
+
+                            } else if (p.value = 'Ótimo! Estamos redirecionando você!'){
+                                p.classList.add('sucess');
+
+                                var icon = document.createElement('i');
+                                icon.className = "fa fa-spinner fa-pulse fa-3x fa-fw";
+                                msg.appendChild(icon);
+                            }
+
+                            console.log(p);
+                        </script>
                     </div>
                     <div class="row">
                         <div class="col">

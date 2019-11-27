@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="submit" value="Cadastro" name="submit">
+                            <input type="submit" value="Cadastrar" name="submit">
                         </div>
                     </div>
                 </form>

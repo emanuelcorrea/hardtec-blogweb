@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
         "conteudo" => $_POST['conteudo'],
         "imgname" => $imgname,
         "imgtype" => $type,
-        "imgtemp" => $imgtemp
+        "imgtemp" => $imgtemp,
+        "id_usuario" => $_SESSION['conta']['id_usuario']
     );
     
     $post->insert($dados);

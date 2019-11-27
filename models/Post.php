@@ -22,7 +22,7 @@ class Post extends Crud
             $this->stmt = $this->conn->prepare($this->getQuery());
             
             if ($this->stmt->execute(array(
-                ":id_usuario" => 1,
+                ":id_usuario" => $data['id_usuario'],
                 ":titulo" => $data['titulo'],
                 ":conteudo" => $data['conteudo'],
                 ":slug" => $this->createSlug($data['titulo']),

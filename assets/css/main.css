@@ -52,6 +52,16 @@ input[type="file"] {
     display: none;
 }
 
+.sucess {
+    color: green;
+}
+
+.fa-spinner {
+    color: red !important;
+    font-size: 16px !important;
+    margin-left: 5px;
+    margin-top: 5px;
+}
 .container {
     max-width: 1480px;
     margin: 0 auto;
@@ -683,6 +693,16 @@ main.painel div.painel div.painel-content form i {
     margin-right: 5px;
 }
 
+main.painel div.painel div.painel-content div.msg-error p {
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: rgb(230, 109, 109);
+    background-color: rgba(204, 204, 204, 0.178);
+    padding: 3px;
+    border-radius: 2px;
+}
+
 main.painel div.painel div.painel-content form input[type="text"],
 main.painel div.painel div.painel-content form input[type="password"] {
     outline: none;
@@ -694,7 +714,6 @@ main.painel div.painel div.painel-content form input[type="password"] {
     width: 250px;
 
 }
-
 
 main.painel div.painel div.painel-content form input[type="text"]::placeholder,
 main.painel div.painel div.painel-content form input[type="password"]::placeholder {
@@ -813,6 +832,7 @@ section.account-content div.account input[type="submit"] {
     margin: 0 auto;
 }
 
+
 /** Botão submit */
 
 
@@ -832,4 +852,18 @@ footer h3 {
     font-size: 16px;
     font-weight: normal;
     color: #FFF;
+}
+
+
+/*! Painel - index  */
+main.painel-main section.painel-content div.titulo h2 {
+    font-family: 'Roboto Mono';
+    font-weight: normal;
+    color: rgb(95, 95, 95);
+    margin-top: 20px;
+    text-align: right;
+}
+
+main.painel-main section.painel-content div.titulo h2 span {
+    color: rgb(61, 61, 61);
 }

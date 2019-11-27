@@ -1,4 +1,11 @@
-<?php require_once('../header.php'); ?>
+<?php
+require_once('../header.php');
+
+if (!isset($_SESSION['logado'])) {
+    header("Location: login.php");
+}
+
+?>
 <style>
     header.menu-navbar, footer {
         display: none;
@@ -19,7 +26,7 @@
             </div>
             <ul>
                 <li>
-                    <a href="#" id="logout">
+                    <a href="logout.php" id="logout">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
@@ -28,8 +35,16 @@
         </nav>
     </div>
 </header>
-<main class="painel">
-    
+<main class="painel-main">
+    <section class="painel-content">
+        <div class="container-menu">
+            <div class="titulo">
+                <h2>Seja bem-vindo de volta, <span><?php echo $_SESSION['conta']['nome']; ?></span>!</h2>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php require_once('../footer.php'); ?>
+
+<?php ?>
