@@ -7,6 +7,14 @@
     transition: 0.2s ease;
 }
 
+html, body {
+	height: 100%;
+}
+
+main {
+    min-height: 100%;
+}
+
 .article-content p {
     font-family: 'Open Sans';
     text-align: justify;
@@ -151,7 +159,8 @@ span.select2 {
 
 /*! Menu  */
 
-header.menu-navbar {
+header.menu-navbar,
+header.menu-painel {
     background-color: cornflowerblue;
     z-index: 1;
     position: sticky;
@@ -160,18 +169,18 @@ header.menu-navbar {
     box-shadow: 0px 0px 1.5rem 1rem #00000010;
 }
 
-header.menu-navbar nav.menu {
+header nav.menu {
     display: flex;
     justify-content: space-between;
 }
 
-header.menu-navbar nav.menu ul {
+header nav.menu ul {
     display: flex;
     list-style: none;
     align-items: center;
 }
 
-header.menu-navbar nav.menu ul li a {
+header nav.menu ul li a:not(#logout) {
     display: block;
     padding: 18px;
     text-decoration: none;
@@ -181,12 +190,12 @@ header.menu-navbar nav.menu ul li a {
 }
 
 /** Logo */
-header.menu-navbar nav.menu div.logo {
+header nav.menu div.logo {
     position: relative;
     display: block;
 }
 
-header.menu-navbar nav.menu div.logo div.logo-content {
+header nav.menu div.logo div.logo-content {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -197,13 +206,13 @@ header.menu-navbar nav.menu div.logo div.logo-content {
     box-shadow: 0px 0px 1.5rem 2px #00000055;
 }
 
-header.menu-navbar nav.menu div.logo div.logo-content img {
+header nav.menu div.logo div.logo-content img {
     position: relative;
     width: 90px;
     z-index: 5;
 }
 
-header.menu-navbar nav.menu div.logo div.logo-content img::before {
+header nav.menu div.logo div.logo-content img::before {
     content: '';
     position: absolute;
     border-radius: 50%;
@@ -223,6 +232,69 @@ div.banner {
 div.banner img {
     height: 700px;
 }
+
+/** Menu painel  */
+header.menu-painel {
+    animation: open 1s ease;
+    transition: 1s;
+    box-shadow: 0px 0px 2rem #00000040;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.menu-painel div.logo {
+    display: flex !important;
+    cursor: pointer;
+}
+
+header.menu-painel div.logo h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-transform: uppercase;
+    color: #FFF;
+    font-family: 'Delius', cursive;
+    letter-spacing: 3px;
+    font-size: 25px;
+}
+
+header.menu-painel div.logo h2 span {
+    color: cyan;
+}
+
+@keyframes open {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+#logout {
+    background-color: #E54C65;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1rem #00000025;
+    transition: 0.5s ease;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+}
+
+.fa-sign-out-alt {
+    font-size: 20px;
+    color: #FFF;
+}
+
+#logout:hover {
+    background-color: rgb(243, 98, 122);
+}
+
 
 /*! =======================================  */
 
@@ -536,6 +608,154 @@ section.article div.article-header div.article-post-info span a {
 
 section.article div.article-content {
     margin-top: 2.5rem;
+}
+
+/*! ============================ */
+
+/*! Painel  */
+
+main.painel {
+    width: 100%;
+    height: 100%;
+    background-color: #00000010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.painel div.painel {
+    background-color: #fff;
+    width: 400px;
+    height: 630px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0px 0px 1em 1px  #00000025;
+    border-radius: 3px;
+}
+
+main.painel div.painel.cadastro {
+    height: 700px;
+}
+
+main.painel div.painel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 14em;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    z-index: 1;
+    background: linear-gradient(to left, #3498db, rgb(11, 97, 211));
+}
+
+main.painel div.painel div.painel-content {
+    z-index: 2;
+}
+
+/** Logo no form */
+main.painel div.painel div.painel-content div.logo img {
+    margin: 25px auto;
+    display: block;
+    box-shadow: 0px 0px 1rem #00000025;
+    border-radius: 50%;
+}
+
+/** Painel */
+main.painel div.painel div.painel-content div.logo h3 {
+    font-family: 'Delius', cursive;
+    color: #FFF;
+    text-align: center;
+    font-size: 20px;
+}
+
+/** Formulário */
+main.painel div.painel div.painel-content form {
+    margin-top: 75px;
+}
+
+main.painel div.painel div.painel-content form i {
+    color: #3498db;
+    font-size: 22px;
+    margin-right: 5px;
+}
+
+main.painel div.painel div.painel-content form input[type="text"],
+main.painel div.painel div.painel-content form input[type="password"] {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: rgb(59, 59, 59);
+    font-family: 'Roboto';
+    font-size: 18px;
+    width: 250px;
+
+}
+
+
+main.painel div.painel div.painel-content form input[type="text"]::placeholder,
+main.painel div.painel div.painel-content form input[type="password"]::placeholder {
+    font-family: 'Roboto';
+}
+
+main.painel div.painel div.painel-content form input[type="text"]:focus + span,
+main.painel div.painel div.painel-content form input[type="password"]:focus + span {
+    width: 100%;
+}
+
+main.painel div.painel div.painel-content form input[type="text"]::after,
+main.painel div.painel div.painel-content form input[type="password"]::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: #ccc;
+    width: 100%;
+}
+
+main.painel div.painel div.painel-content form span {
+    position: relative;
+
+}
+
+main.painel div.painel div.painel-content form div.col > span {
+    display: flex;
+    justify-content: space-between;
+    width: 284px;
+}
+
+main.painel div.painel div.painel-content form span > span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(139, 171, 238);
+    width: 0%;
+    border-radius: 5px;
+    height: 2px;
+}
+
+/** Botão submit */
+main.painel div.painel div.painel-content form input[type="submit"] {
+    margin: 25px auto;
+    text-align: center;
+    height: 45px;
+    width: 120px;
+    background: linear-gradient(to left, #3498db, rgb(11, 97, 211));
+    color: #FFF;
+    font-family: 'Roboto Mono';
+    border: none;
+    cursor: pointer;
+    transition: .2s all ease;
+    border-radius: 2px;
+    margin-left: 80px;
+}
+
+main.painel div.painel div.painel-content form input[type="submit"]:hover {
+    background: linear-gradient(to right, #3498db, rgb(11, 97, 211));
+    box-shadow: 0px 0px 1rem #0380d3be;
 }
 
 /*! Account */

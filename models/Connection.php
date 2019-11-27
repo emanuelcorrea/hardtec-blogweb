@@ -1,11 +1,20 @@
 <?php
-class Connection
-{
-    public function conn()
-    {
-        $pdo = new PDO('mysql:host=localhost;dbname=db_blog;charset=utf8', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once($_SERVER['DOCUMENT_ROOT'] . '/hardtec-blogweb/config/config.php');
 
-        return $pdo;
+abstract class Connection
+{
+    protected $conn;
+
+    final protected function openConnection()
+    {
+        //todo Conexão com o banco de dados
+        try {
+            $this->conn = new PDO('mysql:host=' . DBHOST . ';dbname=' . DBNAME . ';charset=utf8', DBUSER, DBPASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+        } catch (PDOException $e) {
+            echo "Erro de conexão: " . $e->getMessage();
+
+            $this->conn = null;
+            exit;
+        }
     }
 }

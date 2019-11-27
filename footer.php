@@ -1,3 +1,6 @@
+        <footer>
+            <h3>Hardtec, 2019 - Todos os direitos reservados</h3>
+        </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
         <script>
@@ -41,8 +44,5 @@
                 $('.js-example-basic-multiple').select2({});
             });
         </script>
-        <footer>
-            <h3>Hardtec, 2019 - Todos os direitos reservados</h3>
-        </footer>
     </body>
 </html>

@@ -1,10 +1,4 @@
-<?php
-    //? Constante
-    define('LOCALHOST', "http://{$_SERVER['HTTP_HOST']}/hardtec-blogweb/");
-    // define('LOCALHOST', "http://{$_SERVER['HTTP_HOST']}/");
-?>
-
-    <header class="menu-navbar">
+<header class="menu-navbar">
     <div class="menu-content container-menu">
         <nav class="menu">
             <ul>
@@ -14,14 +8,14 @@
             </ul>
             <div class="logo">
                 <div class="logo-content">
-                    <img src="http://<?php echo $_SERVER['HTTP_HOST'];?>/hardtec-blogweb/assets/img/logohardtec.png" alt="">
+                    <img src="<?php echo DIRPAGE;?>assets/img/logohardtec.png" alt="">
                 </div>
             </div>
             <ul>
-                <li><a href="<?php echo LOCALHOST; ?>">Home</a></li>
+                <li><a href="<?php echo DIRPAGE; ?>">Home</a></li>
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
-                <!-- <li><a href="<?php echo LOCALHOST; ?>conta/painel.php">Painel</a></li> -->
+                <!-- <li><a href="<?php echo DIRPAGE;?>conta/painel.php">Painel</a></li> -->
             </ul>
         </nav>
     </div>
