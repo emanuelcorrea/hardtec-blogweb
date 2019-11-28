@@ -19,6 +19,8 @@ if (isset($_POST['submit'])) {
         if ($user->insert($data)) {
             header("Location: " . DIRPAGE . "/painel/login.php");
         }
+    } else {
+        $msg = "<p class='error'>Senhas não coincidem!</p>";
     }
 }
 ?>
@@ -72,6 +74,9 @@ if (isset($_POST['submit'])) {
                                 <span></span>
                             </span>
                         </div>
+                    </div>
+                    <div class="msg-error">
+                        <?php if (isset($msg)) { echo $msg;} ?>
                     </div>
                     <div class="row">
                         <div class="col">

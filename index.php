@@ -8,15 +8,19 @@ $post = new Post();
     <div class="banner">
         <div class="caixa-slideshow">
             <div class="meus-slides-auto fade">
-                <img class="img" src="assets/img/banner/bgedit.jpg">
-            </div>
-
-            <div class="meus-slides-auto fade">
                 <img class="img" src="assets/img/banner/bg1.jpeg">
             </div>
 
             <div class="meus-slides-auto fade">
                 <img class="img" src="assets/img/banner/bg2.jpeg">
+            </div>
+
+            <div class="meus-slides-auto fade">
+                <img class="img" src="assets/img/banner/bg3.jpeg">
+            </div>
+
+            <div class="meus-slides-auto fade">
+                <img class="img" src="assets/img/banner/bg4.jpeg">
             </div>
         </div>
     </div>
@@ -26,15 +30,17 @@ $post = new Post();
                 <!-- Artigo -->
                 <article class="article">
                     <!-- Calendário -->
-                    <div class="day">
-                        <h3><?php echo ucfirst(strftime('%B', strtotime($article->data)));?></h3>
-                        <h2><?php echo date('d', strtotime($article->data)); ?></h2>
-                        <span><?php echo strftime('%A', strtotime($article->data));?></span>
+                    <div>
+                        <div class="day">
+                            <h3><?php echo ucfirst(strftime('%B', strtotime($article->data)));?></h3>
+                            <h2><?php echo date('d', strtotime($article->data)); ?></h2>
+                            <span><?php echo strftime('%A', strtotime($article->data));?></span>
+                        </div>
+                        <!-- Imagem Destaque -->
+                        <header class="article-header">
+                            <a href="<?php echo DIRPAGE; ?>post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if ($article->imgname != "") {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/postBanner.png";} ?>" width="350" height="220"></a>
+                        </header>
                     </div>
-                    <!-- Imagem Destaque -->
-                    <header class="article-header">
-                        <a href="<?php echo DIRPAGE; ?>post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if ($article->imgname != "") {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/postBanner.png";} ?>" width="350" height="220"></a>
-                    </header>
                     <div class="media">
                         <div class="media-description">
                             <header>
@@ -50,13 +56,10 @@ $post = new Post();
                                             <a href="#"><?php echo $category->nomeCategoria; ?></a>
                                         <?php endforeach;?>
                                     </span>
-                                    <span class="comments">
-                                        <a href="#">Nenhum Comentário</a>
-                                    </span>
                                 </div>
                             </header>
                             <!-- Descrição do Post -->
-                            <p><?php echo strip_tags(mb_strimwidth($article->conteudo, 0, 250)); ?>...</p>
+                            <p><?php echo mb_strimwidth(strip_tags($article->conteudo), 0, 250); ?>...</p>
                         </div>
                     </div>
                     <!-- Botão Leia mais -->

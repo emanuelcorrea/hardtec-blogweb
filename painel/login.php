@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                             <div class="msg-error">
-                                <?php if (isset($msg)) { echo $msg;} ?></p>
+                                <?php if (isset($msg)) { echo $msg;} ?>
                             </div>
                             <div class="row">
                                 <div class="col">

@@ -6,7 +6,6 @@
 
 .caixa-slideshow {
     top: -67px;
-    min-width: 1000px;
     position: relative;
 }
 
@@ -84,4 +83,18 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
+    margin-top: 68px;
+}
+
+@media (max-width: 600px) {
+    .caixa-slideshow {
+        min-height: inherit !important;
+        width: 100%;
+        
+    }
+
+    div.banner {
+        background-color: inherit !important;
+        height: auto !important;
+    }
 }
