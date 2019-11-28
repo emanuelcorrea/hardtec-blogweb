@@ -33,21 +33,29 @@ require_once('config/config.php');
         <div class="menu-content container-menu">
             <nav class="menu">
                 <ul>
-                    <li style="width: 80px"><a href="#"></a></li>
-                    <li style="width: 80px"><a href="admin"></a></li>
-                    <li style="width: 80px"><a href="#"></a></li>
+                    <li><a href="<?php echo DIRPAGE; ?>">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <!-- <li><a href="<?php echo DIRPAGE;?>conta/painel.php">Painel</a></li> -->
                 </ul>
                 <div class="logo">
                     <div class="logo-content">
-                        <img src="<?php echo DIRPAGE;?>assets/img/logohardtec.png" alt="">
+                        <a href="<?php echo DIRPAGE; ?>"><img src="<?php echo DIRPAGE;?>assets/img/logohardtec.png" alt=""></a>
                     </div>
                 </div>
-                <ul>
-                    <li><a href="<?php echo DIRPAGE; ?>">Home</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="<?php echo DIRPAGE;?>conta/inserir.php">Inserir</a></li>
-                    <!-- <li><a href="<?php echo DIRPAGE;?>conta/painel.php">Painel</a></li> -->
-                </ul>
+                <div class="input-search">
+                    <input type="text" name="search" id="search" placeholder="Digite o que está procurando...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </nav>
+            <nav class="menu-mobile container">
+                <i class="fas fa-bars"></i>
+                <div class="logo">
+                    <a href="<?php echo DIRPAGE; ?>" style="display: flex; text-decoration: none;">
+                        <img src="<?php echo DIRPAGE; ?>assets/img/logo.png" width="60">
+                        <h2>&nbspHard<span>Tec<span></h2>
+                    </a>
+                </div>
             </nav>
         </div>
     </header>

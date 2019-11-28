@@ -173,10 +173,12 @@ header.menu-navbar,
 header.menu-painel {
     background-color: cornflowerblue;
     z-index: 1;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
     border-bottom: 5px solid #FFF;
-    box-shadow: 0px 0px 1.5rem 1rem #00000010;
+    box-shadow: 0px 0px 1rem 2px #00000025;
 }
 
 header nav.menu {
@@ -212,9 +214,19 @@ header nav.menu div.logo div.logo-content {
     align-items: center;
     border-radius: 50%;
     top: 10px;
-    left: -35px;
+}
+
+header nav.menu div.logo div.logo-content::before {
+    content: '';
+    width: 80px;
+    position: absolute;
+    top: -2px;
+    z-index: 2;
+    height: 80px;
+    border-radius: 50%;
     box-shadow: 0px 0px 1.5rem 2px #00000055;
 }
+
 
 header nav.menu div.logo div.logo-content img {
     position: relative;
@@ -231,16 +243,13 @@ header nav.menu div.logo div.logo-content img::before {
 
 /*? Banner */
 div.banner {
-    height: 633px;
+    height: 753px;
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgba(42, 42, 42, 0.363)
-}
-
-
-div.banner img {
-    height: 700px;
+    background-color: rgba(42, 42, 42, 0.363);
+    margin-top: 60px;
+    overflow: hidden;
 }
 
 /** Menu painel  */
@@ -288,7 +297,7 @@ header.menu-painel div.logo h2 span {
     border-radius: 50%;
     box-shadow: 0px 0px 1rem #00000025;
     transition: 0.5s ease;
-    padding: 15px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,6 +314,39 @@ header.menu-painel div.logo h2 span {
     background-color: rgb(243, 98, 122);
 }
 
+#config i {
+    font-size: 25px;
+}
+
+/** Campo de pesquisa */
+nav.menu div.input-search {
+    position: relative;
+}
+
+nav.menu div.input-search input {
+    height: 36px;
+    width: 300px;
+    border-radius: 35px;
+    outline: none;
+    padding-left: 10px;
+    border: 1px solid #FFF;
+    box-shadow: 0px 0px 1rem #00000025;
+    margin-top: 10px;
+    font-family: 'Roboto';
+    font-size: 15px;
+}
+
+nav.menu div.input-search i {
+    position: absolute;
+    right: 5px;
+    top: 13px;
+    padding: 7px;
+    background-color: #6495ED;
+    color: #FFF;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 1rem #00000005;
+}
 
 /*! =======================================  */
 
@@ -555,7 +597,8 @@ section.article div.article-header {
 section.article div.article-header div.article-image img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    box-shadow: 0px 0px 1rem 5px rgba(0, 0, 0, .3);
+    box-shadow: 0px 0px 1rem 5px rgba(0, 0, 0, .1);
+    margin-top: 70px;
 }
 
 /** Título da postagem  */
@@ -870,6 +913,10 @@ main.painel-main section.painel-content div.titulo h2 span {
 
 /** Boxes */
 
+div.boxes div.box {
+    display: flex;
+}
+
 div.boxes div.box-title {
     font-family: 'Open Sans';
     display: flex;
@@ -884,28 +931,89 @@ div.boxes div.box-title {
 div.boxes div.box-content {
     height: 150px;
     width: 200px;
-    background-color: #00000010;
-    border: 1px solid #ccc;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
     border-radius: 2px;
-    transition: .5s ease;
+    transition: .2s ease-out;
+    margin-right: 20px;
+    box-shadow: 0px 0px .9rem #00000025;
 }
 
 div.boxes div.box-content:hover {
-    box-shadow: 0px 0px 1rem #00000025;
+    transform: scale(1.05);
 }
 
 div.boxes div.box-img i {
-    font-size: 37px;
+    font-size: 45px;
 }
 
 div.boxes div.box-img-title h4 {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: 'Roboto';
     font-weight: normal;
     color: #000;
+}
+
+
+@media (max-width: 1280px) {
+    .container-menu {
+        max-width: 1200px;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    .logo-content {
+        left: -10px;
+    }
+}
+
+nav.menu-mobile {
+    height: 70px;
+    background-color: #6495ED;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav.menu-mobile i {
+    font-size: 35px;
+    color: #FFF;
+}
+
+nav.menu-mobile div.logo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+nav.menu-mobile div.logo a h2 {
+    font-family: 'Roboto Slab';
+    text-decoration: none;
+    color: #FFF;
+}
+
+nav.menu-mobile div.logo a h2 span {
+    color: cyan;
+}
+
+
+@media (max-width: 600px) {
+    nav.menu {
+        display: none !important;
+    }
+
+    .container {
+        width: 100% !important;
+        max-width: 500px !important;
+    }
+
+    
+
 }

@@ -21,7 +21,7 @@ if (isset($_GET['slug']) && !empty($_GET['slug'])) {
             <div class="article-header">
                 <div class="article-image">
                     <!-- Imagem de destaque da postagem -->
-                    <img src="<?php echo DIRPAGE; ?>assets/img/post/<?php if (isset($article->imgname) && $article->imgname != null) {echo "$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/logoHardTec.jpg";} ?>" alt="" width="1140">
+                    <img src="<?php echo DIRPAGE; ?><?php if (isset($article->imgname) && $article->imgname != null) {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/post.png";} ?>" width="1140">
                 </div>
                 <div class="article-header-info">
                     <!-- Título da postagem -->

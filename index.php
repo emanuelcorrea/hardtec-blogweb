@@ -33,7 +33,7 @@ $post = new Post();
                     </div>
                     <!-- Imagem Destaque -->
                     <header class="article-header">
-                        <a href="<?php echo DIRPAGE; ?>post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if ($article->imgname != "") {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/logoHardTec.jpg";} ?>" width="350" height="220"></a>
+                        <a href="<?php echo DIRPAGE; ?>post/<?php echo $article->slug; ?>" title="<?php echo $article->titulo; ?>"><img src="<?php if ($article->imgname != "") {echo "assets/img/post/$article->id_postagem/$article->id_postagem$article->imgtype";} else {echo "assets/img/postBanner.png";} ?>" width="350" height="220"></a>
                     </header>
                     <div class="media">
                         <div class="media-description">

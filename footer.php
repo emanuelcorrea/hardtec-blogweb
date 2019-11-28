@@ -10,11 +10,9 @@
                 if (scroll > 250) {
                     document.querySelector(".logo-content img").style.width = "80px";
                     document.querySelector(".logo-content").style.top = "0px";
-                    document.querySelector(".container-menu").style.maxWidth = "920px";
                 }
 
                 if (scroll < 250) {
-                    document.querySelector(".container-menu").style.maxWidth = "1280px";
                     document.querySelector(".logo-content").style.top = "10px";
                     document.querySelector(".logo-content img").style.width = "90px";
                 }

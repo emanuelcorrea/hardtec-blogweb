@@ -13,6 +13,9 @@
             <ul>
                 <li>
                     <a href="#" id="logout">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                    <a href="#" id="logout">
                         <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
